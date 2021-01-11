@@ -43,7 +43,7 @@ const redirectLogin = (req,res,next) =>{
 //   }
 // }
 
-app.get('/login', function(req, res){
+app.get('/', function(req, res){
   res.render('login', {LoginWarning: ""} );
 });
 
@@ -114,7 +114,7 @@ app.get('/registration', function(req, res){
 console.log(session.UserId);
 //Starting from here is only part of the milestone2 functionality
 //var Curser = "";rentU
-app.post('/login', function (req, res){
+app.post('/', function (req, res){
   var user = req.body.username.toLowerCase();
   var pass = req.body.password;
   var data = fs.readFileSync('UserInfo.JSON');
