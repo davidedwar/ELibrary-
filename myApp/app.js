@@ -34,16 +34,16 @@ const redirectLogin = (req,res,next) =>{
      next();
   }
 }
-const redirectHome = (req,res,next) =>{
-  if(req.session.UserId) { 
-    res.redirect('/home');
-  }
-  else{
-     next();
-  }
-}
+// const redirectHome = (req,res,next) =>{
+//   if(req.session.UserId) { 
+//     res.redirect('/home');
+//   }
+//   else{
+//      next();
+//   }
+// }
 
-app.get('/', redirectHome, function(req, res){
+app.get('/', function(req, res){
   res.render('login', {LoginWarning: ""} );
 });
 
