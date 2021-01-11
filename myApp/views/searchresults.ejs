@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+        #Books {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #Books li a {
+            border: 1px solid #ddd; 
+            margin-top: -1px; 
+            background-color: #f6f6f6;
+            padding: 12px; 
+            text-decoration: none; 
+            font-size: 18px; 
+            color: black;
+            display: block; 
+        }
+        #image:hover{
+            box-shadow: 7px 7px 7px 0px grey;
+            transition: box-shadow 0.4s ease-in-out;
+        }
+        #warn{
+            color: wheat;
+            font-weight: bold;
+            margin-left: 640px;
+            margin-top: 150px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Search Results</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/search' class="form-inline my-2 my-lg-0">
+                <input class="form-control  mr-sm-2" name="Search" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <!-- <ul id="Books">
+                <li><a href="#">Dune</a></li>
+                <li><a href="#">Lord of the Flies</a></li>
+              
+                <li><a href="#">The Grapes of Wrath</a></li>
+                <li><a href="#">Leaves of grass</a></li>
+              
+                <li><a href="#">To kill a mockingbird</a></li>
+                <li><a href="#">The sun and her Flowers</a></li>
+ 
+              </ul> -->
+        </div>
+    </nav>
+    <div class = "row">
+        <% if(SearchedBooks.length == 0) { %>
+            <h3 id = "warn">
+                BOOK NOT FOUND!
+            </h3>
+        <% } else { %>	
+        <%for(var i = 0 ; i < SearchedBooks.length ; i++){%>
+            <% switch (SearchedBooks[i]) {
+                case 'Dune' : %>
+                    <div class="col-2">
+                        <a href = "/dune">
+                        <img id="image" src="/dune.jpg" width="193" height="300">
+                        </a>
+                    </div> 
+                    <% break;
+                case 'Lord of the Flies' : %>
+                    <div class="col-2">
+                        <a href = "/flies">
+                        <img id="image" src="/flies.jpg" width="193" height="300">
+                        </a>
+                    </div> 
+                    <% break;
+    
+                case 'The Grapes of Wrath' : %>
+                    <div class="col-2">
+                        <a href = "/grapes">
+                        <img id="image" src="/grapes.jpg" width="193" height="300">
+                        </a>
+                    </div> 
+                    <% break;
+                case 'Leaves of grass' : %>
+                    <div class="col-2">
+                        <a href = "/leaves">
+                        <img id="image" src="/leaves.jpg" width="193" height="300">
+                        </a>
+                    </div> 
+                    <% break;
+                case 'To Kill a Mockingbird' : %>
+                    <div class="col-2">
+                        <a href = "/mockingbird">
+                        <img id="image" src="/mockingbird.jpg" width="193" height="300">
+                        </a>
+                    </div> 
+                    <% break;
+                case 'The Sun and her Flowers' : %>
+                    <div class="col-2">
+                        <a href = "/sun">
+                        <img id="image" src="/sun.jpg" width="193" height="300">\
+                        </a>
+                    </div> 
+                    <% break;
+                } %>
+         
+           <% } %>
+           <% } %>
+        </div>
+        
+</body>
+</html>
