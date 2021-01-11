@@ -266,14 +266,14 @@ app.post('/list', function(req,res){
 )
 
 
-app.get('/mockingbird', function(req, res){
+app.get('/mockingbird', redirectLogin, function(req, res){
   res.render('mockingbird',{error:""});
 });
 
 
 
   
-app.get('/readlist', function(req, res){
+app.get('/readlist', redirectLogin, function(req, res){
   var data = fs.readFileSync('UserInfo.json');
   var parsed = JSON.parse(data);
   var i = parsed.findIndex(user => user.id == req.session.UserId);
